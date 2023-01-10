@@ -38,6 +38,10 @@ public WebElement findTransactionsTab;
 
     @FindBy (xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr[1]/td[1]")
     public WebElement row1_1;
+    @FindBy (xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr[2]/td[1]")
+    public WebElement row2_1;
+    @FindBy (xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr[3]/td[1]")
+    public WebElement row3_1;
 
 
 
