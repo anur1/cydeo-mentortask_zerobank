@@ -1,7 +1,7 @@
 @Task6_AccountActivity
 Feature: Find Transactions in Account Activity
 
-  @wip
+
   Scenario Outline: Search date range
     Given user logs in his-her own account
     When user clicks on More Services button under Online Banking
@@ -15,3 +15,18 @@ Feature: Find Transactions in Account Activity
     Examples:
       | fromDate   | toDate     | columnName |
       | "2012-09-01" | "2012-09-06" | date       |
+
+
+    #task6-b
+  @wip
+  Scenario: Search description
+    Given user logs in his-her own account
+    When user clicks on More Services button under Online Banking
+    And user clicks on Account Activity link
+    And user clicks on Find Transactions tab
+    When user enters "ONLINE" string to description input box
+    And clicks on find
+    Then user sees descriptions containing "ONLINE" string on the table
+    When user enters description “OFFICE”
+    And clicks on find
+    Then user sees descriptions containing “OFFICE” string on the table

@@ -51,7 +51,7 @@ public class Task6_AccountActivity_StepDefinitions {
     @Then("verify that user sees the date in range “{string}” to “{string}”")
     public void verify_that_user_sees_the_date_in_range_to(String string, String string2) throws InterruptedException {
 
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         System.out.println("--");
 
 
@@ -112,9 +112,54 @@ public class Task6_AccountActivity_StepDefinitions {
     @Then("verify that dates are sorted by most recent date")
     public void verify_that_dates_are_sorted_by_most_recent_date() {
 
+        //get rows of date column
+        System.out.println("-xxx-");
+        WebElement rows1_1 = task6_accountActivityPage.row1_1;
+        WebElement rows2_1 = task6_accountActivityPage.row2_1;
+        WebElement rows3_1 = task6_accountActivityPage.row3_1;
+        //get what cell contains
+        String stringRow1 = rows1_1.getText();
+        String stringRow2 = rows2_1.getText();
+        String stringRow3 = rows3_1.getText();
+
+        // compare if dates are sorted
+        int numericRow1_1 = Integer.parseInt(stringRow1.replace("-", ""));
+        int numericRow2_1 = Integer.parseInt(stringRow2.replace("-", ""));
+        int numericRow3_1 = Integer.parseInt(stringRow3.replace("-", ""));
+        System.out.println(numericRow1_1);
+        System.out.println(numericRow2_1);
+        System.out.println(numericRow3_1);
+
+        assertTrue(numericRow2_1<=numericRow1_1 && numericRow3_1<=numericRow2_1);
+
+
+
+
+
+
 
     }
 
 
+    //task6-b
 
+    @When("user enters {string} string to description input box")
+    public void userEntersStringToDescriptionInputBox(String string) {
+        task6_accountActivityPage.descriptionInputBox.sendKeys(string);
+    }
+
+    @Then("user sees descriptions containing {string} string on the table")
+    public void userSeesDescriptionsContainingStringOnTheTable(String string) throws InterruptedException {
+        //get size of table   //print elements of table
+        List<WebElement> allRows = task6_accountActivityPage.rows;
+        int rowsCount = task6_accountActivityPage.rows.size();
+        System.out.println("rowsCount = " + rowsCount);
+        WebElement element1  = task6_accountActivityPage.rows.get(1);
+        System.out.println(element1.getText());
+
+
+        System.out.println(task6_accountActivityPage.row1_2_Text.getText());
+        Thread.sleep(3000);
+
+    }
 }//endstepdefinition

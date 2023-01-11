@@ -17,41 +17,40 @@ public class Task6_AccountActivityPage {
     //Task3: Account summary page
 
 
-    @FindBy (xpath = "//span[@id='account_activity_link']")
+    @FindBy(xpath = "//span[@id='account_activity_link']")
     public WebElement accountActivityLink;
 
     @FindBy(xpath = "//a[.='Find Transactions']")
-public WebElement findTransactionsTab;
+    public WebElement findTransactionsTab;
 
-    @FindBy (xpath = "//input[@id='aa_fromDate']")
+    @FindBy(xpath = "//input[@id='aa_fromDate']")
     public WebElement fromDateInputBox;
 
-    @FindBy (xpath = "//input[@id='aa_toDate']")
+    @FindBy(xpath = "//input[@id='aa_toDate']")
     public WebElement toDateInputBox;
 
-    @FindBy (xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement findButton;
 
 
-    @FindBy (xpath = "//table/tbody")
+    @FindBy(xpath = "//table/tbody")
     public List<WebElement> rows;
 
-    @FindBy (xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr[1]/td[1]")
+    @FindBy(xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr[1]/td[1]")
     public WebElement row1_1;
-    @FindBy (xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr[2]/td[1]")
+    @FindBy(xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr[2]/td[1]")
     public WebElement row2_1;
-    @FindBy (xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr[3]/td[1]")
+    @FindBy(xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr[3]/td[1]")
     public WebElement row3_1;
 
 
+    //------------------
+    //task6-b
+    @FindBy(xpath = "//input[@id='aa_description']")
+    public WebElement descriptionInputBox;
 
 
-
-
-
-
-
-
-
+    @FindBy (xpath = "//*[@id=\"all_transactions_for_account\"]/table/tbody/tr[1]/td[2]")
+    public WebElement row1_2_Text;
 
 }
