@@ -144,21 +144,33 @@ public class Task6_AccountActivity_StepDefinitions {
     //task6-b
 
     @When("user enters {string} string to description input box")
-    public void userEntersStringToDescriptionInputBox(String string) {
-        task6_accountActivityPage.descriptionInputBox.sendKeys(string);
+    public void userEntersStringToDescriptionInputBox(String string) throws InterruptedException {
+        Thread.sleep(3000);
+        task6_accountActivityPage.descriptionInputBox.clear();
+        String UpperCaseString = string.toUpperCase();
+        task6_accountActivityPage.descriptionInputBox.sendKeys(UpperCaseString);
+
+        //note: conversion from small "i" to big "İ" makes trouble
     }
 
     @Then("user sees descriptions containing {string} string on the table")
     public void userSeesDescriptionsContainingStringOnTheTable(String string) throws InterruptedException {
         //get size of table   //print elements of table
-        List<WebElement> allRows = task6_accountActivityPage.rows;
-        int rowsCount = task6_accountActivityPage.rows.size();
-        System.out.println("rowsCount = " + rowsCount);
-        WebElement element1  = task6_accountActivityPage.rows.get(1);
-        System.out.println(element1.getText());
+        Thread.sleep(3000);
+
+        WebElement text1 = task6_accountActivityPage.row1_2_Text;
+       // WebElement text2 = task6_accountActivityPage.row2_2_Text;        Thread.sleep(3000);
+
+        System.out.println(text1.getText());
+        //System.out.println(text2.getText());
+
+        assertTrue(text1.getText().contains(string));
+        //assertTrue(text2.getText().contains(string));
 
 
-        System.out.println(task6_accountActivityPage.row1_2_Text.getText());
+
+
+
         Thread.sleep(3000);
 
     }

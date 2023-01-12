@@ -50,7 +50,10 @@ public class Task6_AccountActivityPage {
     public WebElement descriptionInputBox;
 
 
-    @FindBy (xpath = "//*[@id=\"all_transactions_for_account\"]/table/tbody/tr[1]/td[2]")
+    @FindBy (xpath = "(//table)[2]//tbody/tr[1]//td[2]")
     public WebElement row1_2_Text;
+
+    @FindBy (xpath = "(//table)[2]//tbody/tr[2]//td[2]")
+    public WebElement row2_2_Text;
 
 }
