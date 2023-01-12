@@ -50,13 +50,18 @@ Feature: Find Transactions in Account Activity
 
     #task6-d
   Scenario: Type
-    Given the user accesses the Find Transactions tab
-    And clicks search
-    Then results table should show at least one result under Deposit
-    Then results table should show at least one result under Withdrawal
-    When user selects type “Deposit”
-    Then results table should show at least one result under Deposit
-    But results table should show no result under Withdrawal
-    When user selects type “Withdrawal”
-    Then results table should show at least one result under Withdrawal
-    But results table should show no result under Deposit
+    Given user logs in his-her own account
+    When user clicks on More Services button under Online Banking
+    And user clicks on Account Activity link
+    And user clicks on Find Transactions tab
+    And clicks on find
+    Then sees at least one Deposit result on the table
+    Then sees at least one Withdrawal result on the table
+    When user selects “Deposit” from Type dropdown
+    And clicks on find
+    Then sees at least one Deposit result on the table
+    But sees no Withdrawal result on the table
+    When user selects “Withdrawal” from Type dropdown
+    And clicks on find
+    Then sees at least one Withdrawal result on the table
+    But sees no Deposit result on the table
