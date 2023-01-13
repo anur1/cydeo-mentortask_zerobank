@@ -30,7 +30,6 @@ Feature: Find Transactions in Account Activity
     And clicks on find
     Then user sees descriptions containing "OFFICE" string on the table
 
-  @wip
 
     #task6-c
   Scenario: Search description case insensitive
@@ -59,9 +58,10 @@ Feature: Find Transactions in Account Activity
     Then sees at least one Withdrawal result on the table
     When user selects “Deposit” from Type dropdown
     And clicks on find
-    Then sees at least one Deposit result on the table
-    But sees no Withdrawal result on the table
-    When user selects “Withdrawal” from Type dropdown
+
+    Then sees at least one Deposit result on the table_two
+    But sees no Withdrawal result on the table_two
+    When user selects Withdrawal from Type dropdown
     And clicks on find
-    Then sees at least one Withdrawal result on the table
+    Then sees at least one Withdrawal result on the table_two
     But sees no Deposit result on the table

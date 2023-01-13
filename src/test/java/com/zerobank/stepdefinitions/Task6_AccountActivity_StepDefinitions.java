@@ -2,9 +2,11 @@ package com.zerobank.stepdefinitions;
 
 import com.zerobank.pages.*;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.But;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -28,6 +30,7 @@ public class Task6_AccountActivity_StepDefinitions {
     public void user_clicks_on_account_activity_link() {
         task6_accountActivityPage.accountActivityLink.click();
     }
+
     @When("user clicks on Find Transactions tab")
     public void user_clicks_on_find_transactions_tab() {
         task6_accountActivityPage.findTransactionsTab.click();
@@ -59,7 +62,7 @@ public class Task6_AccountActivity_StepDefinitions {
         List<WebElement> allRows = task6_accountActivityPage.rows;
         int rowsCount = task6_accountActivityPage.rows.size();
         System.out.println("rowsCount = " + rowsCount);
-        WebElement element1  = task6_accountActivityPage.rows.get(1);
+        WebElement element1 = task6_accountActivityPage.rows.get(1);
         System.out.println(element1.getText());
 
 
@@ -84,7 +87,7 @@ public class Task6_AccountActivity_StepDefinitions {
         System.out.println(string);
         System.out.println(string2);
         int numericDate1 = Integer.parseInt(string.replace("-", ""));
-        int numericDate2 =Integer.parseInt(string2.replace("-", ""));
+        int numericDate2 = Integer.parseInt(string2.replace("-", ""));
 
         assertTrue(numericDate2 >= numericDate1);
 
@@ -96,17 +99,12 @@ public class Task6_AccountActivity_StepDefinitions {
         System.out.println(numericRow2_1);
         System.out.println(numericRow3_1);
 
-        assertTrue(numericDate1<=numericRow1_1);
-        assertTrue(numericDate1<=numericRow2_1);
-        assertTrue(numericDate1<=numericRow3_1);
-
-
+        assertTrue(numericDate1 <= numericRow1_1);
+        assertTrue(numericDate1 <= numericRow2_1);
+        assertTrue(numericDate1 <= numericRow3_1);
 
 
     }
-
-
-
 
 
     @Then("verify that dates are sorted by most recent date")
@@ -130,12 +128,7 @@ public class Task6_AccountActivity_StepDefinitions {
         System.out.println(numericRow2_1);
         System.out.println(numericRow3_1);
 
-        assertTrue(numericRow2_1<=numericRow1_1 && numericRow3_1<=numericRow2_1);
-
-
-
-
-
+        assertTrue(numericRow2_1 <= numericRow1_1 && numericRow3_1 <= numericRow2_1);
 
 
     }
@@ -159,7 +152,7 @@ public class Task6_AccountActivity_StepDefinitions {
         Thread.sleep(3000);
 
         WebElement text1 = task6_accountActivityPage.row1_2_Text;
-       // WebElement text2 = task6_accountActivityPage.row2_2_Text;        Thread.sleep(3000);
+        // WebElement text2 = task6_accountActivityPage.row2_2_Text;        Thread.sleep(3000);
 
         System.out.println(text1.getText());
         //System.out.println(text2.getText());
@@ -168,10 +161,131 @@ public class Task6_AccountActivity_StepDefinitions {
         //assertTrue(text2.getText().contains(string));
 
 
-
-
-
         Thread.sleep(3000);
 
     }
+
+
+    //task6-d
+
+
+    @Then("sees at least one Deposit result on the table")
+    public void sees_at_least_one_deposit_result_on_the_table() throws InterruptedException {
+        Thread.sleep(2000);
+        WebElement deposit1 = task6_accountActivityPage.row1_3;
+        WebElement deposit2 = task6_accountActivityPage.row2_3;
+        WebElement deposit3 = task6_accountActivityPage.row3_3;
+
+        System.out.println(deposit1.getText());
+        System.out.println(deposit2.getText());
+        System.out.println(deposit3.getText());
+
+        assertTrue(deposit1.getText().isEmpty() || deposit2.getText().isEmpty() || deposit3.getText().isEmpty());
+
+
+    }
+
+    @Then("sees at least one Withdrawal result on the table")
+    public void sees_at_least_one_withdrawal_result_on_the_table() throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement withdrawal1 = task6_accountActivityPage.row1_4;
+        WebElement withdrawal2 = task6_accountActivityPage.row2_4;
+        WebElement withdrawal3 = task6_accountActivityPage.row3_4;
+
+        System.out.println(withdrawal1.getText());
+        System.out.println(withdrawal2.getText());
+        System.out.println(withdrawal3.getText());
+
+        assertTrue(withdrawal1.getText().isEmpty() || withdrawal2.getText().isEmpty() || withdrawal3.getText().isEmpty());
+
+    }
+
+    @When("user selects “Deposit” from Type dropdown")
+    public void user_selects_deposit_from_type_dropdown() {
+
+        Select dropDownMenu = new Select(task6_accountActivityPage.dropDownElement_Type);
+
+        dropDownMenu.selectByVisibleText("Deposit");
+
+
+    }
+
+    @Then("user sees no Withdrawal result on the table")
+    public void sees_no_withdrawal_result_on_the_table() throws InterruptedException {
+
+
+    }
+
+    @Then("sees at least one Deposit result on the table_two")
+    public void seesAtLeastOneDepositResultOnTheTable_two() throws InterruptedException {
+
+        Thread.sleep(1000);
+
+        WebElement deposit1 = task6_accountActivityPage.row1_3;
+        WebElement deposit2 = task6_accountActivityPage.row2_3;
+
+        System.out.println(deposit1.getText());
+        System.out.println(deposit2.getText());
+
+        assertTrue(!deposit1.getText().isEmpty() || !deposit2.getText().isEmpty());
+
+
+    }
+
+
+    @But("sees no Withdrawal result on the table_two")
+    public void seesNoWithdrawalResultOnTheTable_two() {
+        WebElement withdrawal1 = task6_accountActivityPage.row1_4;
+        WebElement withdrawal2 = task6_accountActivityPage.row2_4;
+
+        System.out.println("xxxx");
+        System.out.println(withdrawal1.getText());
+        System.out.println(withdrawal1.getText());
+
+        assertTrue(withdrawal1.getText().isEmpty() && withdrawal2.getText().isEmpty());
+
+
+    }
+
+
+    @When("user selects Withdrawal from Type dropdown")
+    public void userSelectsWithdrawalFromTypeDropdown() {
+        Select dropDownMenu = new Select(task6_accountActivityPage.dropDownElement_Type);
+
+        dropDownMenu.selectByVisibleText("Withdrawal");
+
+
+    }
+
+
+    @Then("sees at least one Withdrawal result on the table_two")
+    public void seesAtLeastOneWithdrawalResultOnTheTable_two() throws InterruptedException {
+        Thread.sleep(1000);
+
+
+        WebElement withdrawal1 = task6_accountActivityPage.row1_4;
+
+        System.out.println("xxxxyyyyy");
+        System.out.println(withdrawal1.getText());
+
+        assertTrue(!withdrawal1.getText().isEmpty());
+
+
+    }
+
+
+    @Then("sees no Deposit result on the table")
+    public void sees_no_deposit_result_on_the_table() throws InterruptedException {
+        Thread.sleep(1000);
+
+        WebElement deposit1 = task6_accountActivityPage.row1_3;
+
+        System.out.println(deposit1.getText());
+
+        assertTrue(deposit1.getText().isEmpty());
+
+    }
+
 }//endstepdefinition
+
+

@@ -49,11 +49,38 @@ public class Task6_AccountActivityPage {
     @FindBy(xpath = "//input[@id='aa_description']")
     public WebElement descriptionInputBox;
 
-
+//description box
     @FindBy (xpath = "(//table)[2]//tbody/tr[1]//td[2]")
     public WebElement row1_2_Text;
 
     @FindBy (xpath = "(//table)[2]//tbody/tr[2]//td[2]")
     public WebElement row2_2_Text;
+
+
+    //deposit box
+
+    @FindBy (xpath = "(//table)[2]//tbody/tr[1]//td[3]")
+    public WebElement row1_3;
+
+    @FindBy (xpath = "(//table)[2]//tbody/tr[2]//td[3]")
+    public WebElement row2_3;
+
+    @FindBy (xpath = "(//table)[2]//tbody/tr[3]//td[3]")
+    public WebElement row3_3;
+
+    //Withdrawal box
+
+    @FindBy (xpath = "(//table)[2]//tbody/tr[1]//td[4]")
+    public WebElement row1_4;
+
+    @FindBy (xpath = "(//table)[2]//tbody/tr[2]//td[4]")
+    public WebElement row2_4;
+
+    @FindBy (xpath = "(//table)[2]//tbody/tr[3]//td[4]")
+    public WebElement row3_4;
+
+    @FindBy (xpath = "//select[@id='aa_type']")
+    public  WebElement dropDownElement_Type;
+
 
 }
