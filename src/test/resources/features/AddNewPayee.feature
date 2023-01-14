@@ -2,11 +2,14 @@
   Feature: Add new payee under pay bills
 
     Background:
-      Given the user is logged in
-      When the user clicks on Online Baking More Services
-      And the user clicks on "Pay Bills" link
-      And the "Pay Bills" page should be displayed
-      And the user accesses the "Add New Payee" tab
+      Given user logs in his-her own account
+      When user clicks on More Services button under Online Banking
+      And user clicks on Pay Bills link
+      And user sees Pay Bills page
+      And user clicks on Add New Payee tab
+
+
+
 
 
   @AddNewPayee1

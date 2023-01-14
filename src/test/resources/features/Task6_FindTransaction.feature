@@ -45,7 +45,6 @@ Feature: Find Transactions in Account Activity
     Then user sees descriptions containing "ONLINE" string on the table
 
 
-  @wip
 
     #task6-d
   Scenario: Type
