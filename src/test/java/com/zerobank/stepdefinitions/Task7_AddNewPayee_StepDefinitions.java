@@ -9,7 +9,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
@@ -26,6 +28,35 @@ public class Task7_AddNewPayee_StepDefinitions {
     Task7_AddNewPayeePage task7_addNewPayeePage = new Task7_AddNewPayeePage();
     //add new payee -->
 
+
+
+    @When("user clicks on Pay Bills link")
+    public void user_clicks_on_pay_bills_link() {
+        task7_addNewPayeePage.payBillsLink.click();
+    }
+    @When("user sees Pay Bills page")
+    public void user_sees_pay_bills_page() throws InterruptedException {
+        Thread.sleep(2000);
+        assertEquals("Pay Bills", task7_addNewPayeePage.payBillsTabText.getText());
+    }
+    @When("user clicks on Add New Payee tab")
+    public void user_clicks_on_add_new_payee_tab() {
+        task7_addNewPayeePage.addNewPayeeTab.click();
+    }
+    @When("user adds following new payee as information")
+    public void user_adds_following_new_payee_as_information(Map<String, String> givenTableValues) throws InterruptedException {
+       task7_addNewPayeePage.newPayeeNameBox.sendKeys(givenTableValues.get("Payee Name"));
+       task7_addNewPayeePage.newPayeeAddressBox.sendKeys(givenTableValues.get("Payee Name"));
+
+       task7_addNewPayeePage.newPayeeAccountBox.sendKeys(givenTableValues.get("Payee Name"));
+        task7_addNewPayeePage.newPayeeDetailsBox.sendKeys(givenTableValues.get("Payee Name"));
+        Thread.sleep(2);
+    }
+    @Then("user sees following {string} on the screen")
+    public void user_sees_following_on_the_screen(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
 
 
 

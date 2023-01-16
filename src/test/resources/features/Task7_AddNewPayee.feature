@@ -12,12 +12,12 @@ Feature: Add new payee under pay bills
 
   @wip
   Scenario Outline: Add a new payee
-    And user adds new payee using following information
+    And user adds following new payee as information
       | Payee Name    | The Law Offices of Hyde, Price & Scharks |
       | Payee Address | 100 Same st, Anytown, USA, 10001         |
       | Account       | Checking                                 |
       | Payee details | XYZ account                              |
-    Then message "<message>" should be displayed
+    Then user sees following "<message>" on the screen
     Examples:
       | message |
       | The new payee The Law Offices of Hyde, Price & Scharks was successfully created. |
