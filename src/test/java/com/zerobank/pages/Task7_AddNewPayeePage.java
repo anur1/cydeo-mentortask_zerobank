@@ -37,8 +37,17 @@ public class Task7_AddNewPayeePage {
     @FindBy (xpath = "//input[@id='np_new_payee_details']")
     public WebElement newPayeeDetailsBox;
 
-    @FindBy (xpath = "//div[@id='alert_content']")
-    public  WebElement newPayeeAddedAlertText;
+
+    @FindBy (xpath = "//input[@id='add_new_payee']")
+    public WebElement addButton;
+
+
+    @FindBy (xpath = "//div//div//div[@id='alert_content']")
+    public  WebElement message;
+
+    //div[@id='alert_content']
+    //    id = "alert_content"
+    //div//div//div[@id='alert_content']
 
 
 }

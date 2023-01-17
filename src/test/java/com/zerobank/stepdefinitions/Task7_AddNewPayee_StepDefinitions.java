@@ -46,16 +46,26 @@ public class Task7_AddNewPayee_StepDefinitions {
     @When("user adds following new payee as information")
     public void user_adds_following_new_payee_as_information(Map<String, String> givenTableValues) throws InterruptedException {
        task7_addNewPayeePage.newPayeeNameBox.sendKeys(givenTableValues.get("Payee Name"));
-       task7_addNewPayeePage.newPayeeAddressBox.sendKeys(givenTableValues.get("Payee Name"));
+       task7_addNewPayeePage.newPayeeAddressBox.sendKeys(givenTableValues.get("Payee Address"));
 
-       task7_addNewPayeePage.newPayeeAccountBox.sendKeys(givenTableValues.get("Payee Name"));
-        task7_addNewPayeePage.newPayeeDetailsBox.sendKeys(givenTableValues.get("Payee Name"));
-        Thread.sleep(2);
+       task7_addNewPayeePage.newPayeeAccountBox.sendKeys(givenTableValues.get("Account"));
+        task7_addNewPayeePage.newPayeeDetailsBox.sendKeys(givenTableValues.get("Payee details"));
+        task7_addNewPayeePage.addButton.click();
+        Thread.sleep(3000);
     }
     @Then("user sees following {string} on the screen")
-    public void user_sees_following_on_the_screen(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_sees_following_on_the_screen(String string) throws InterruptedException {
+        Thread.sleep(1000);
+
+        System.out.println("task7_addNewPayeePage.message.getText() = " + task7_addNewPayeePage.message.getText());
+        String actualMessage = task7_addNewPayeePage.message.getText();
+        Thread.sleep(1000);
+
+        assertEquals(string, actualMessage);
+        Thread.sleep(1000);
+
+
+
     }
 
 
