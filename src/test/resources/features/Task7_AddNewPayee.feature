@@ -10,7 +10,6 @@ Feature: Add new payee under pay bills
     And user clicks on Add New Payee tab
 
 
-  @wip
   Scenario Outline: Add a new payee
     And user adds following new payee as information
       | Payee Name    | The Law Offices of Hyde, Price & Scharks |
