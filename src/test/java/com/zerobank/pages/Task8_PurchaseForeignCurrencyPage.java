@@ -13,8 +13,14 @@ public class Task8_PurchaseForeignCurrencyPage {
     }
 
 
-    @FindBy (xpath = "//span[@id='pay_bills_link']")
+    @FindBy(xpath = "//span[@id='pay_bills_link']")
     public WebElement payBillsLink;
+
+    @FindBy(xpath = "//a[.='Purchase Foreign Currency']")
+    public WebElement we_tab_of_PurchaseForeignCurrency;
+
+    @FindBy(xpath = "//select[@id='pc_currency']")
+    public WebElement we_dropDownMenu_of_currency;
 
 
 
