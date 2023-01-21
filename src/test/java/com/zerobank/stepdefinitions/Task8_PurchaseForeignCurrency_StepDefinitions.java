@@ -37,6 +37,11 @@ public class Task8_PurchaseForeignCurrency_StepDefinitions {
     @Then("user sees following currencies listed in dropdown box")
     public void user_sees_following_currencies_listed_in_dropdown_box(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
 
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        List<String> expectedDropDownList = dataTable.asList();
+        System.out.println("expecteddropDownList = " + expectedDropDownList);
+
+
         Thread.sleep(3000);
 
         Select dropDownMenu = new Select(task8_purchaseForeignCurrencyPage.we_dropDownMenu_of_currency);
@@ -49,11 +54,26 @@ public class Task8_PurchaseForeignCurrency_StepDefinitions {
             System.out.println(option);
         }
 
-        List<String> testData =
-        for(int i =1; i<size ; i++){
-            String option = optionsList.get(i).getText();
-            assertTrue(dataTable.cel);
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+        int size1 = expectedDropDownList.size();
+        for(int i =0; i<size1 ; i++){
+            String option1 = expectedDropDownList.get(i);
+            System.out.println(option1);
         }
+        Thread.sleep(3000);
+
+        for(int i =0; i<7  ; i++){
+            System.out.println("\naaaaaaa_________________");
+            String actualText = optionsList.get(i+1).getText();
+            System.out.println("actualText = " + actualText);
+            assertTrue(expectedDropDownList.contains(actualText)); //first element does not match
+        }
+
+
+
+
+
 
         Thread.sleep(1000);
 
