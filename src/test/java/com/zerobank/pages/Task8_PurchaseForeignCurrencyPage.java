@@ -22,6 +22,9 @@ public class Task8_PurchaseForeignCurrencyPage {
     @FindBy(xpath = "//select[@id='pc_currency']")
     public WebElement we_dropDownMenu_of_currency;
 
+    @FindBy (xpath =  "//input[@id='purchase_cash']")
+    public WebElement weButton_OfPurchase;
+
 
 
 

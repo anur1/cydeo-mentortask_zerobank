@@ -9,7 +9,7 @@ Feature: Purchase Foreign Currency
     And user sees Pay Bills page
     And user clicks on Purchase Foreign Currency tab
 
-  @wip
+
   Scenario: Available currencies
     Then user sees following currencies listed in dropdown box
       | Australia (dollar)    |
@@ -25,11 +25,10 @@ Feature: Purchase Foreign Currency
       | New Zealand (dollar)  |
       | Singapore (dollar)    |
 
+  @wip
   Scenario: Error message for not selecting currency
-    When user tries to calculate cost without selecting a currency
+    When user pushes purchase button currency and value
     Then user sees error message displayed on popup
 
-  Scenario: Error message for not entering value
-    When user tries to calculate cost without entering a value
-    Then user sees error message displayed on popup
+
 

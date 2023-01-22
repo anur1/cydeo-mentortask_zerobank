@@ -1,8 +1,11 @@
 package com.zerobank.stepdefinitions;
 
 import com.zerobank.pages.*;
+import com.zerobank.utilities.BrowserUtils;
+import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -80,7 +83,32 @@ public class Task8_PurchaseForeignCurrency_StepDefinitions {
 
 
     }
+    @When("user pushes purchase button currency and value")
+    public void userPushesPurchaseButtonCurrencyAndValue() {
+        BrowserUtils.waitFor(1);
+        task8_purchaseForeignCurrencyPage.weButton_OfPurchase.click();
+    }
 
+
+
+
+    @Then("user sees error message displayed on popup")
+    public void user_sees_error_message_displayed_on_popup() {
+
+        BrowserUtils.waitFor(1);
+
+        Alert alert = Driver.getDriver().switchTo().alert();
+
+        String alertMessage= alert.getText();
+        System.out.println(alertMessage);
+
+        //is there any message text in the popup
+        assertTrue(!alertMessage.isEmpty());
+
+        alert.accept();
+
+        BrowserUtils.waitFor(2);
+    }
 
 
 
